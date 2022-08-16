@@ -4,12 +4,15 @@ import Button from 'react-bootstrap/Button'
 import useForm from './useForm'
 import validation from './validation'
 
-function FormSignup() {
-  const { handleChange, values, handleSubmit, errors } = useForm(validation)
+function FormSignup({ submitForm }) {
+  const { handleChange, values, handleSubmit, errors } = useForm(
+    submitForm,
+    validation
+  )
   return (
     <div className="container">
       <div className="col-10 mx-auto col-md-8 mt-4">
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} noValidate>
           <h1> User sign up form</h1>
           {/* used as a divider between inputs*/}
           <Form.Group className="mb-3">
